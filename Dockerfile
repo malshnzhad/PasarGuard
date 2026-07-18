@@ -1,6 +1,6 @@
 ARG PYTHON_VERSION=3.14
 
-FROM ghcr.io/astral-sh/uv:python$PYTHON_VERSION-bookworm-slim AS builder
+FROM --platform=$BUILDPLATFORM golang:1.26.3-alpine AS builder
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
